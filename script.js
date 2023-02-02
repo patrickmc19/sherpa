@@ -1,9 +1,10 @@
 var weatherAPI = '127337ecf2639c829a50c27f0e45f8c0';
 var currentWeather = 'https://api.openweathermap.org/data/2.5/weather?q=';
-var fiveDayForecast = 'https://api.openweathermap.org/data/2.5/forecast?q='
+var fiveDayForecast = 'https://api.openweathermap.org/data/2.5/forecast?q=';
+var googleAPI = 'AIzaSyCX19TrHnBNF_0Rm_1QoWhIjuaBsr8y1AU';
 
 function getWeather() {
-    var city = $("#user-input").val();
+    var city = $("form").children("#user-input").val();
     fetch(fiveDayForecast + city + "&units=imperial&limit=1&appid=" + weatherAPI)
         .then(function (response) {
             return response.json();
@@ -13,11 +14,11 @@ function getWeather() {
                 $("#day-" + i).empty();
                 $("#temp-" + i).empty();
                 $("#wind-" + i).empty();
-                $("#humidity-" + i).empty();
+                $("#hum-" + i).empty();
                 $("#day-" + i).append(`${moment(data.list[i].dt, "X").format('MM/DD/YYYY')} <img id="weather-icon1" src= "http://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png">`);
                 $("#temp-" + i).append(" " + `${data.list[i].main.temp}` + "°F");
                 $("#wind-" + i).append(" " + `${data.list[i].wind.gust}` + " MPH");
-                $("#humidity-" + i).append(" " + `${data.list[i].main.humidity}` + " %");
+                $("#hum-" + i).append(" " + `${data.list[i].main.humidity}` + " %");
             }
             fetch(currentWeather + city + "&units=imperial&appid=" + weatherAPI)
                 .then(function (response2) {
@@ -25,13 +26,15 @@ function getWeather() {
                 })
                 .then(function (data2) {
                     $("#city-name").empty();
+                    $("weather-header").empty();
+                    $("#weather-header").append("Weather Forecast for " + `${data2.name}`);
                     $("#city-name").append(`${data2.name} ${moment(data2.dt, "X").format('MM/DD/YYYY')} <img id="weather-icon" src= "http://openweathermap.org/img/wn/${data2.weather[0].icon}@2x.png">`)
                     var currentTemp = data2.main.temp;
-                    $("#temp").text("Temp: " + currentTemp + "°F");
+                    $("#cur-temp").text("Temp: " + currentTemp + "°F");
                     var currentWind = data2.wind.speed;
-                    $("#wind").text("Wind: " + currentWind + " MPH");
+                    $("#cur-wind").text("Wind: " + currentWind + " MPH");
                     var currentHumidity = data2.main.humidity;
-                    $("#humidity").text("Humidity: " + currentHumidity + " %")
+                    $("#cur-hum").text("Humidity: " + currentHumidity + " %")
                 })
         })
 }

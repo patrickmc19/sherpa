@@ -67,4 +67,21 @@ body {
     text-align: center;
     padding: 1rem;
   }
-  
+
+  .cards {
+   display: flex;
+   justify-content: space-evenly;
+   border-style: groove;
+   border-color: black;
+   background: navy;
+   padding: 2%;
+   border-radius: 5px;
+}
+
+.card {
+  border-style: ridge;
+  border-color: #ff3def;
+  background: white;
+  padding: 2%;
+  border-radius: 5px;
+}
