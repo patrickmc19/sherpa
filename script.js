@@ -1,7 +1,22 @@
 var weatherAPI = '127337ecf2639c829a50c27f0e45f8c0';
-var currentWeather = 'https://api.openweathermap.org/data/2.5/weather?q=';
 var fiveDayForecast = 'https://api.openweathermap.org/data/2.5/forecast?q=';
-var googleAPI = 'AIzaSyCX19TrHnBNF_0Rm_1QoWhIjuaBsr8y1AU';
+var googleResultsAPI = "https://serpapi.com/search.json?engine=google&q=Local+Landmarks&location="
+var serpAPI = "fad54d11f84d981eed74fed7d8a3e7f171d9020cc347f9e7bd97b5cb29bdb162";
+
+// import { getJson } from "serpapi"; {
+	
+// const params = {
+//   api_key: "fad54d11f84d981eed74fed7d8a3e7f171d9020cc347f9e7bd97b5cb29bdb162",
+//   q: "Local Landmarks",
+//   google_domain: "google.com",
+//   gl: "us",
+//   hl: "en",
+//   device: "mobile"
+// };
+
+// // Show result as JSON
+// const response = await getJson("google", params);
+// console.log(response);}
 
 function getWeather() {
     var city = $("form").children("#user-input").val();
@@ -12,30 +27,21 @@ function getWeather() {
         .then(function (data) {
             console.log(data);
             for (let i = 0; i < data.list.length; i = i + 8) {
+                $("#weather-header").empty()
                 $("#day-" + i).empty();
                 $("#temp-" + i).empty();
                 $("#wind-" + i).empty();
                 $("#hum-" + i).empty();
+                $("#weather-header").append("Current Forecast for " + `${data.city.name}`)
                 $("#day-" + i).append(`${moment(data.list[i].dt, "X").format('MM/DD/YYYY')} <img id="weather-icon1" src= "http://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png">`);
                 $("#temp-" + i).append("Temp: " + `${data.list[i].main.temp}` + "°F");
                 $("#wind-" + i).append("Wind: " + `${data.list[i].wind.gust}` + " MPH");
                 $("#hum-" + i).append("Humidity: " + `${data.list[i].main.humidity}` + " %");
             }
-            fetch(currentWeather + city + "&units=imperial&appid=" + weatherAPI)
-                .then(function (response2) {
-                    return response2.json();
-                })
-                .then(function (data2) {
-                    $("#weather-header").empty();
-                    $("#city-name").empty();
-                    $("#weather-header").append("Weather Forecast for " + `${data2.name}`);
-                    $("#city-name").append(`${data2.name} ${moment(data2.dt, "X").format('MM/DD/YYYY')} <img id="weather-icon" src= "http://openweathermap.org/img/wn/${data2.weather[0].icon}@2x.png">`)
-                    var currentTemp = data2.main.temp;
-                    $("#cur-temp").text("Temp: " + currentTemp + "°F");
-                    var currentWind = data2.wind.speed;
-                    $("#cur-wind").text("Wind: " + currentWind + " MPH");
-                    var currentHumidity = data2.main.humidity;
-                    $("#cur-hum").text("Humidity: " + currentHumidity + " %")
+                fetch(googleResultsAPI + city + "&google_domain=google.com&gl=us&hl=en&api_key=" + serpAPI)
+                .then(function (response3) {
+                    console.log(response3);
+                    return response3.json();
                 })
         })
 }
