@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sherpa Results Page</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
 </head>
 
 <body>
@@ -58,9 +58,11 @@
                 </div>
             </div>
             <div id="results">
-                <h3>Things to do in your area</h3>
-                <img src="./google-results-placeholder.jpg" alt="local landmarks">
-
+                <h3 id="city-results"></h3>
+                <div class="centered">
+                    <section id="google"></section>
+                    <div id="results"></div>
+                </div>
             </div>
         </div>
 
@@ -70,7 +72,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
-    <script src="script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>
