@@ -25,19 +25,25 @@ function getResults() {
                 $("#wind-" + i).append("Wind: " + `${data.list[i].wind.gust}` + " MPH");
                 $("#hum-" + i).append("Humidity: " + `${data.list[i].main.humidity}` + " %");
             }
-            // fetch(googleResultsAPI + city + "&google_domain=google.com&gl=us&hl=en&api_key=" + serpAPI)
-            //     .then(function (response2) {
-            //         console.log(response2);
-            //         return response2.json();
-            //     })
-            //     .then(function (data2) {
-            //         console.log(data2);
-            //         for (let i = 0; i < data2.organic_results.length; i++) {
-            //             $("#linked-result").empty();
-            //             $("#snippet").empty();
-            //             $("#results").append("<div id='result-container'><a id='linked-result' href=" + `${data2.organic_results[i].link}` + ">" + `${data2.organic_results[i].title}` + "</a><p id='snippet'>" + `${data2.organic_results[i].snippet}` + "</p></div>");
-            //         }
-            //     })
+            fetch(googleResultsAPI + city + "&google_domain=google.com&gl=us&hl=en&api_key=" + serpAPI, {
+                mode: "cors",
+                headers: {
+                    "Access-Control-Allow-Origin": "*"
+                },
+                method: 'GET',
+            })
+                .then(function (response2) {
+                    console.log(response);                    
+                    return response2.json();
+                })
+                .then(function (data2) {
+                    console.log(data2);
+                    for (let i = 0; i < data2.organic_results.length; i++) {
+                        $("#linked-result").empty();
+                        $("#snippet").empty();
+                        $("#results").append("<div id='result-container'><a id='linked-result' href=" + `${data2.organic_results[i].link}` + ">" + `${data2.organic_results[i].title}` + "</a><p id='snippet'>" + `${data2.organic_results[i].snippet}` + "</p></div>");
+                    }
+                })
         })
 }
 
