@@ -34,6 +34,7 @@ ul, nav {
 }
 
 a {
+  font-size: 3rem;
   color: #fff;
   text-decoration: none;
   cursor: pointer;
@@ -138,6 +139,7 @@ a.btn:hover {
   font-size: 1rem;
   border-radius: 0;
   outline: 0;
+  /* -webkit-appearance: none; */
 }
 
 input[type=search] {
