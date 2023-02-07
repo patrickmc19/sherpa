@@ -25,7 +25,11 @@ function getResults() {
                 $("#wind-" + i).append("Wind: " + `${data.list[i].wind.gust}` + " MPH");
                 $("#hum-" + i).append("Humidity: " + `${data.list[i].main.humidity}` + " %");
             }
-            fetch(googleResultsAPI + city + "&google_domain=google.com&gl=us&hl=en&api_key=" + serpAPI)            
+            fetch(googleResultsAPI + city + "&google_domain=google.com&gl=us&hl=en&api_key=" + serpAPI, {
+                headers: {
+                    "Allow-Access-Control-Origin": "https://patrickmc19.github.io/sherpa/"
+                },
+            })            
             .then(function (response2) {
                     console.log(response);                    
                     return response2.json();
