@@ -5,18 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sherpa Results Page</title>
+    <title>Sherpa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/cards.css" />
 </head>
 
 <body>
     <header>
-        <h1>Sherpa</h1>
+        <h2><a href="#"><i class="fa fa-map-marker"></i> Sherpa</a></h2>
     </header>
-    <main>
-        <form>
-            <input type="text" id="user-input">
-            <button type="button" id="search">Search</button>
+    <div class="cover">
+        <h1>Discover what's out there.</h1>
+        <form  class="flex-form">
+          <label for="from">
+            <i class="ion-location"></i>
+          </label>
+          <input type="search" id="user-input" placeholder="Enter City Name">
+          <input type="button" id="search" value="Search">
         </form>
         <div>
             <h2>Results</h2>
@@ -68,7 +74,7 @@
 
 
 
-    </main>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
