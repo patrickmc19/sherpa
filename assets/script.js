@@ -31,7 +31,7 @@ function getResults() {
                 });
 
             }
-            fetch(googleURL + googleAPI + "")
+            fetch(googleURL + googleAPI + " ")
         })
 }
 
