@@ -2,6 +2,7 @@ var weatherAPI = '127337ecf2639c829a50c27f0e45f8c0';
 var fiveDayForecast = 'https://api.openweathermap.org/data/2.5/forecast?q=';
 var googleResultsAPI = "https://serpapi.com/search.json?engine=google&q=Local+Landmarks&location="
 var serpAPI = "fad54d11f84d981eed74fed7d8a3e7f171d9020cc347f9e7bd97b5cb29bdb162";
+const cards = document.querySelectorAll(".card");
 
 function getResults() {
     var city = $("form").children("#user-input").val();
@@ -24,6 +25,11 @@ function getResults() {
                 $("#temp-" + i).append("Temp: " + `${data.list[i].main.temp}` + "°F");
                 $("#wind-" + i).append("Wind: " + `${data.list[i].wind.gust}` + " MPH");
                 $("#hum-" + i).append("Humidity: " + `${data.list[i].main.humidity}` + " %");
+
+                cards.forEach((card) => {
+                  card.style.opacity = 1;
+                });
+
             }
             fetch(googleResultsAPI + city + "&google_domain=google.com&gl=us&hl=en&api_key=" + serpAPI, {
                 headers: {

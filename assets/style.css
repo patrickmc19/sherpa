@@ -149,6 +149,8 @@ input[type=search] {
 .weather{
   position: absolute;
   float: right;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
 
 }
 @media all and (max-width: 800px) {
