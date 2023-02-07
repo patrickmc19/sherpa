@@ -25,14 +25,8 @@ function getResults() {
                 $("#wind-" + i).append("Wind: " + `${data.list[i].wind.gust}` + " MPH");
                 $("#hum-" + i).append("Humidity: " + `${data.list[i].main.humidity}` + " %");
             }
-            fetch(googleResultsAPI + city + "&google_domain=google.com&gl=us&hl=en&api_key=" + serpAPI, {
-                mode: "cors",
-                headers: {
-                    "Access-Control-Allow-Origin": "*"
-                },
-                method: 'GET',
-            })
-                .then(function (response2) {
+            fetch(googleResultsAPI + city + "&google_domain=google.com&gl=us&hl=en&api_key=" + serpAPI)            
+            .then(function (response2) {
                     console.log(response);                    
                     return response2.json();
                 })
