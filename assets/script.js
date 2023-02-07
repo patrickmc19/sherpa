@@ -25,7 +25,7 @@ function getResults() {
                 $("#wind-" + i).append("Wind: " + `${data.list[i].wind.gust}` + " MPH");
                 $("#hum-" + i).append("Humidity: " + `${data.list[i].main.humidity}` + " %");
             }
-            fetch(googleURL + googleAPI + "")
+            fetch(googleURL + googleAPI + " ")
         })
 }
 
