@@ -25,7 +25,12 @@ body {
   background: url("https://github.com/tailwindtoolbox/Rainblur-Landing-Page/raw/main/header.png") no-repeat center center fixed;
   background-size: cover;
   color: #0a0a0b;
-  overflow: hidden;
+  height: 100vh;
+}
+
+body header,
+body .cover{
+  margin-top: 2%;
 }
 
 ul, nav {
@@ -54,6 +59,11 @@ h1 {
 
 i {
   font-size: 1.3rem;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
 }
 
 header {
@@ -144,6 +154,11 @@ a.btn:hover {
 
 input[type=search] {
   flex-basis: 500px;
+}
+
+#invalid {
+  color: red;
+  font-size: larger;
 }
 
 .weather{

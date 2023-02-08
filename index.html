@@ -21,6 +21,7 @@
         <input type="search" id="user-input" placeholder="Enter City Name">
         <input type="button" id="search" value="Search">
       </form>
+      <label id ="invalid"></label>
       <div>
         <div id="weather">
           <h3 id="weather-header"></h3>
@@ -63,8 +64,12 @@
                 <h3 id="city-results"></h3>
                 <div class="centered">
                     <section id="google"></section>
-                    <div id="results"></div>
+                    <div id="map"></div>
                 </div>
+            </div>
+            <div id="to-do">
+              <h3>To-Do List:</h3>
+
             </div>
         </div>
     <footer>
@@ -73,6 +78,9 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJ5BTuX8XFqRAfuhIREwley8Gmal-WuMQ&callback=initMap&libraries=places"
+  async>
+  </script>
   <script src="./assets/script.js"></script>
 
 </html>
