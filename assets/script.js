@@ -82,7 +82,7 @@ function initMap() {
             map.setCenter(results[0].geometry.location);
         }
     });
-}
+
 
 $("#search").on("click", getResults)
 $("#search").on("click", initMap)
