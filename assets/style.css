@@ -21,7 +21,6 @@ html {
 
 body {
   font-family: "Lato", sans-serif;
-  margin: 0;
   background: url("https://github.com/tailwindtoolbox/Rainblur-Landing-Page/raw/main/header.png") no-repeat center center fixed;
   background-size: cover;
   color: #0a0a0b;
@@ -30,7 +29,7 @@ body {
 
 body header,
 body .cover{
-  margin-top: 2%;
+  margin-top: 5%;
 }
 
 ul, nav {
@@ -54,7 +53,6 @@ h1 {
   font-size: 3rem;
   font-weight: 700;
   color: #fff;
-  margin: 0 0 1.5rem;
 }
 
 i {
@@ -66,8 +64,14 @@ i {
   width: 100%;
 }
 
+#to-do {
+  width: 100%;
+  font-size: larger;
+  justify-content: center;
+  display: list-item;
+}
+
 header {
-  position: absolute;
   top: 0;
   left: 0;
   z-index: 10;
@@ -81,18 +85,6 @@ header {
 
 header nav ul {
   display: flex;
-}
-
-header nav li {
-  margin: 0 15px;
-}
-
-header nav li:first-child {
-  margin-left: 0;
-}
-
-header nav li:last-child {
-  margin-right: 0;
 }
 
 a.btn {
@@ -149,7 +141,6 @@ a.btn:hover {
   font-size: 1rem;
   border-radius: 0;
   outline: 0;
-  /* -webkit-appearance: none; */
 }
 
 input[type=search] {
@@ -159,6 +150,23 @@ input[type=search] {
 #invalid {
   color: red;
   font-size: larger;
+}
+
+#add-to {
+  background: #ef3f5a;
+  border: 1px solid #ef3f5a;
+  color: #fff;
+  padding: 0 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+  height: 100%;
+  width: 100%;
+  font-size: larger;
+}
+
+#add-to:hover {
+  background: #d73851;
+  border: 1px solid #d73851;
 }
 
 .weather{
@@ -182,9 +190,6 @@ input[type=search] {
     flex-direction: column;
     padding: 10px !important;
   }
-  header h2 {
-    margin-bottom: 15px;
-  }
   h1 {
     font-size: 2rem;
   }
@@ -193,9 +198,6 @@ input[type=search] {
   }
 }
 @media all and (max-width: 360px) {
-  header nav li {
-    margin: 0 10px;
-  }
   .flex-form {
     display: flex;
     flex-direction: column;

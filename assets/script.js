@@ -4,12 +4,18 @@ var googleURL = "https://maps.googleapis.com/maps/api/js?key=";
 var googleAPI = "AIzaSyBxSpUyKagJm9BARSv8C9PY1cLN7SLEKNE";
 const cards = document.querySelectorAll(".card");
 
+$(function () {
+    var text = localStorage.getItem("to-do");
+    $("#to-do").children("textarea").val(text);
+})
+
 function getResults() {
     var city = $("form").children("#user-input").val();
     if (city.length > 0) {
         $("#invalid").empty();
         fetch(fiveDayForecast + city + "&units=imperial&limit=1&appid=" + weatherAPI)
             .then(function (response) {
+                console.log(response);
                 return response.json();
             })
             .then(function (data) {
@@ -32,6 +38,7 @@ function getResults() {
             })
     } else {
         $("#invalid").text("Not a valid city.");
+        $("#city-results").empty();
         $("#weather-header").empty();
         $("#day-0").empty();
         $("#temp-0").empty();
@@ -84,5 +91,12 @@ function initMap() {
     });
 }
 
+function addButton() {
+    var id = $(this).siblings("textarea").attr("id")
+    var text = $(this).siblings("textarea").val()
+    localStorage.setItem(id, text)
+}
+
 $("#search").on("click", getResults)
 $("#search").on("click", initMap)
+$("#add-to").on("click", addButton)
