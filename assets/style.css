@@ -67,7 +67,6 @@ i {
 #to-do {
   width: 100%;
   font-size: larger;
-  justify-content: center;
   display: list-item;
 }
 
@@ -101,9 +100,7 @@ a.btn:hover {
 }
 
 .cover {
-  height: 100vh;
   width: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 20px 50px;
   display: flex;
   flex-direction: column;

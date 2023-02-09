@@ -15,7 +15,6 @@ function getResults() {
         $("#invalid").empty();
         fetch(fiveDayForecast + city + "&units=imperial&limit=1&appid=" + weatherAPI)
             .then(function (response) {
-                console.log(response);
                 return response.json();
             })
             .then(function (data) {
@@ -82,7 +81,6 @@ function initMap() {
     $("#city-results").append(city);
     service = new google.maps.places.PlacesService(map);
     service.findPlaceFromQuery(request, (results, status) => {
-        console.log(request);
         if (status === google.maps.places.PlacesServiceStatus.OK && results) {
             for (let i = 0; i < results.length; i++) {
             }
