@@ -4,7 +4,7 @@
 
 ```
 AS A traveler 
-I WANT to see the daily weather and get suggestions for things to do locally 
+I WANT to see the weather forecast, with a local map, and to-do list
 SO THAT I can optimize my vacation time
 ```
 
@@ -13,13 +13,12 @@ SO THAT I can optimize my vacation time
 ```
 GIVEN I am a traveler
 WHEN I input my destination
-THEN I am presented with that location's current and 5 day weather forecast
-WHEN I redirect to sherpa.html
-THEN a map/list loads pins and a corresponding list of local landmarks
-WHEN I click on the activity in the list
-THEN the map moves to the corresponding pin
-WHEN I add an landmark to my to-do list
-THEN I see the landmark again when I revisit
+THEN I am presented with that location's 5 day weather forecast and local map
+WHEN I change my desition
+THEN I am presented with the new location's forecast and the map relocates
+WHEN I add an event to my to-do list
+THEN I see the event again when I revisit
 ```
 
 ## Screenshot
+
